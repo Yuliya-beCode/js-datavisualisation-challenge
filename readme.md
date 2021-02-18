@@ -108,6 +108,4 @@ The evaluation method chosen is a **self-evaluation** based on the following ind
  - [ ]  If I disable javascript, the user experience is satisfactory, the user has access to data and content
  - [ ]  If I enable javascript, the tables are enhanced with an interactive graph.
 
- ## Good luck !
 
-![](js-2.gif)
