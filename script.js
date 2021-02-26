@@ -1,55 +1,54 @@
-/**$.ajax({
-    url: 'http://remote_url?&callback=',
-    type: 'post',
-    dataType: 'jsonp',
-    success: function(result){
-        alert(result);
-    },
-    error: function(result){
-        alert(result);
-    }
-}); **/
 
-var ctx = document.getElementById('myChartOne').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
+function getTableData(query, labels = false) {
+  let json = { dataset: [] };
 
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
-    },
+  if (labels) {
+    json.labels = [];
+    document.querySelectorAll(query + ' tbody tr:first-child th').forEach(item => {
+      if (item.innerText.length) json.labels.push(item.innerText)
+    })
+  }
 
-    // Configuration options go here
-    options: {}
+  document.querySelectorAll(query + ' tr:not(:first-child)').forEach(item => {
+    let obj = { label: '', data: [] };
+
+    item.querySelectorAll('td').forEach(item => {
+      if (!obj.label.length) obj.label = item.innerText
+      else obj.data.push(parseFloat(item.innerText))
+    })
+    json.dataset.push(obj)
+  })
+  return json;
+}
+
+let table1data = getTableData('#table1', true)
+let ctx = document.getElementById('myChartOne').getContext('2d');
+let chart = new Chart(ctx, {
+  type: 'radar',
+  
+  data: {
+    labels: table1data.labels,
+    
+     datasets: table1data.dataset,
+     borderColor: 'red'
+
+  }
 });
 
 
-/**
 
-var ctx = document.getElementById('myChartTwo').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
 
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
-    },
+let table2data = getTableData('#table2')
+let ctx2 = document.getElementById('myChartTwo').getContext('2d');
+let chart2 = new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: ['2007-09', '2010-12'],
+    backgroundColor: 'red',
+            
+    datasets: table2data.dataset,
 
-    // Configuration options go here
-    options: {}
-}); **/
+  }
+});
+
 
