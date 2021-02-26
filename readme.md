@@ -3,7 +3,7 @@
 - repository : `js-datavisualisation-challenge`  
 - mode: `solo`  
 - type: `consolidation challenge`  
-- duration: `5 days`  
+- Deadline: `15/03/2021 at 09h00`  
 - author: `Alexandre Plennevaux`  
 
 ## Objectives
