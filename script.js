@@ -30,7 +30,8 @@ let chart = new Chart(ctx, {
     labels: table1data.labels,
     
      datasets: table1data.dataset,
-     borderColor: 'red'
+     
+     backgroundColor: 'red'
 
   }
 });

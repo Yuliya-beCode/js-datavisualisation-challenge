@@ -2,6 +2,7 @@ const chart = new Chart(document.getElementById('chart').getContext('2d'), {
   type: 'scatter',
   data: {
     datasets: [{ label: 'Chart', data: [] }]
+    
   }
   
 });
