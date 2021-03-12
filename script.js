@@ -10,7 +10,7 @@ function getTableData(query, labels = false) {
   }
 
   document.querySelectorAll(query + ' tr:not(:first-child)').forEach(item => {
-    let obj = { label: '', data: [] };
+    let obj = { label: '', data: [], backgroundColor: "green" };
 
     item.querySelectorAll('td').forEach(item => {
       if (!obj.label.length) obj.label = item.innerText
@@ -24,16 +24,14 @@ function getTableData(query, labels = false) {
 let table1data = getTableData('#table1', true)
 let ctx = document.getElementById('myChartOne').getContext('2d');
 let chart = new Chart(ctx, {
-  type: 'radar',
-  
+  type: 'bar',
+
+
   data: {
     labels: table1data.labels,
-    
-     datasets: table1data.dataset,
-     
-     backgroundColor: 'red'
-
+    datasets: table1data.dataset,
   }
+
 });
 
 
@@ -45,11 +43,8 @@ let chart2 = new Chart(ctx2, {
   type: 'line',
   data: {
     labels: ['2007-09', '2010-12'],
-    backgroundColor: 'red',
-            
+
     datasets: table2data.dataset,
 
   }
 });
-
-
