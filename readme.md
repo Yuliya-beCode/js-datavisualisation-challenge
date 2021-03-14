@@ -1,7 +1,7 @@
-#  Javascript Challenge : "Data Visualisation"
+# Javascript Challenge : "Data Visualisation"
 
 
-[Link to the task 1](https://yuliya-becode.github.io/js-datavisualisation-challenge/index.html)
+[Link to the challenge](https://yuliya-becode.github.io/js-datavisualisation-challenge/taskOne.html)
 
 - repository : `js-datavisualisation-challenge`  
 - mode: `solo`  
